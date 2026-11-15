@@ -70,7 +70,15 @@ IX. 卡死三无。`}];
  const seedPhotos=[{id:'seed-qimiao',name:'七秒钟后.jpg',caption:'七秒钟后',quote:'小鱼仍拥有回忆',date:'2026-11-16T20:00:00+08:00',src:'assets/album-qimiao.jpg'},
  {id:'seed-women',name:'我们.jpg',caption:'我们',quote:'都会幸福的',date:'2026-11-16T20:05:00+08:00',src:'assets/album-woomen.jpg'},
  {id:'seed-happiness',name:'直到幸福触手可及.jpg',caption:'直到幸福触手可及',quote:'原来早已被幸福围绕',date:'2026-11-16T20:12:00+08:00',src:'assets/album-happiness.jpg'},
- {id:'seed-fate',name:'宿命的指引.jpg',caption:'宿命的指引',quote:'是命中注定',date:'2026-11-16T20:14:00+08:00',src:'assets/album-fate.jpg'}];
+ {id:'seed-fate',name:'宿命的指引.jpg',caption:'宿命的指引',quote:'是命中注定',date:'2026-11-16T20:14:00+08:00',src:'assets/album-fate.jpg'},
+ {id:'seed-heartbeat',name:'你说心脏每一秒骤停.jpg',caption:'你说心脏每一秒骤停',quote:'而我觉得每一秒都是与你共鸣',date:'2026-11-16T20:16:00+08:00',src:'assets/album-heartbeat.jpg'},
+ {id:'seed-inverse',name:'我与你.jpg',caption:'我与你',quote:'是否是一道逆命题',date:'2026-11-16T20:18:00+08:00',src:'assets/album-inverse.jpg'},
+ {id:'seed-themis',name:'忒弥斯手举的天平其上.jpg',caption:'忒弥斯手举的天平其上',quote:'象征你的砝码已超过我灵魂的重量',date:'2026-11-16T20:20:00+08:00',src:'assets/album-themis.jpg'},
+ {id:'seed-butterfly',name:'闪动如蝴蝶在双颊.jpg',caption:'闪动如蝴蝶在双颊',quote:'那是眼泪吗',date:'2026-11-16T20:22:00+08:00',src:'assets/album-butterfly.jpg'},
+ {id:'seed-ocean',name:'我开始相信命运.jpg',caption:'我开始相信命运',quote:'相信所有的雨季只是为了回到最初的洋流',date:'2026-11-16T20:24:00+08:00',src:'assets/album-ocean.jpg'},
+ {id:'seed-florence',name:'窗外是佛罗伦萨.jpg',caption:'窗外是佛罗伦萨',quote:'桌上是死',date:'2026-11-16T20:26:00+08:00',src:'assets/album-florence.jpg'},
+ {id:'seed-book',name:'命运之书里.jpg',caption:'命运之书里',quote:'我们不过一行字之间',date:'2026-11-16T20:28:00+08:00',src:'assets/album-book.jpg'},
+ {id:'seed-hardship',name:'苦厄相随.jpg',caption:'苦厄相随',quote:'你说世间什么最难得',date:'2026-11-16T20:30:00+08:00',src:'assets/album-hardship.jpg'}];
  {const seedIds=new Set(photos.map(p=>p.id));for(const s of seedPhotos)if(!seedIds.has(s.id))photos.push(s);}
  const persist=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('本地空间不足，请先导出内容。');return false;}};
  const uid=()=>crypto.randomUUID();
