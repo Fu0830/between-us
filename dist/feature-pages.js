@@ -30,7 +30,8 @@ VII. 刷牌子刷输了会被我客诉。
 VIII. 讨厌模版化的感谢or结单小票，坑了炸了请立刻道歉，极其反感事后道歉。
 IX. 卡死三无。`}];
  {const seedIds=new Set(memories.map(m=>m.id));for(const s of seedMemories)if(!seedIds.has(s.id))memories.push(s);}
- const seedLetters=[{id:'seed-from-zaoan',title:'From早安',to:'小鱼饼饼',date:'2026-08-30',body:`一转眼很久了，时间过得好快。8.30正好是我们相遇的时间，也是你的生日。以前的我不相信缘分，也不相信运气。我觉得这个世界就是一个利益交换的构成体，直到你的出现我觉得并不完全是这样。原来无条件的偏爱是这样的。`}];
+ const seedLetters=[{id:'seed-from-zaoan',title:'From早安',to:'小鱼饼饼',date:'2026-08-30',body:`一转眼很久了，时间过得好快。8.30正好是我们相遇的时间，也是你的生日。以前的我不相信缘分，也不相信运气。我觉得这个世界就是一个利益交换的构成体，直到你的出现我觉得并不完全是这样。原来无条件的偏爱是这样的。`},
+ {id:'seed-from-xiaolin',title:'From小林',to:'小鱼饼饼',date:'2026-11-16',body:`非常高兴那天跑去要小鱼宝宝的联系，是我人生最勇敢的一次，就这样遇见了你！小鱼是一个特别特别真诚的小女孩，懂我所有难以说出口的言语！如果我是个男的我一定娶了这个🐟。最后么么么亲亲这个鱼，被你俩感动死了！嘿嘿，希望小鱼天天开心，遇到更多更多更多的梦中情音！`}];
  {const seedIds=new Set(letters.map(l=>l.id));for(const s of seedLetters)if(!seedIds.has(s.id))letters.push(s);}
  const persist=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('本地空间不足，请先导出内容。');return false;}};
  const uid=()=>crypto.randomUUID();
