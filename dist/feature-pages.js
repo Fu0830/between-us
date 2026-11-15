@@ -67,7 +67,8 @@ IX. 卡死三无。`}];
 所以呀，这么好的小鱼饼饼值得世上一切。小鱼饼饼要好好照顾自己噢。无论如何我相信小鱼饼饼的未来只会越来越好。毕竟命运锻我以水火，该许我有天青色。小鱼饼饼是一个特别有能力的人，无论命运会否安排跌宕起伏的剧情，我们小鱼饼饼都有将之改写的能力。
 虽然我和小鱼饼饼才认识短短的22天，但我们的故事仍在继续。且祝春山，且与夏满。未来的每一天，挽月都会陪着小鱼饼饼。希望你一切都好，希望一切俗套的祝福语，都在你身上灵验。`}];
  {const seedIds=new Set(letters.map(l=>l.id));for(const s of seedLetters)if(!seedIds.has(s.id))letters.push(s);}
- const seedPhotos=[{id:'seed-qimiao',name:'七秒钟后.jpg',caption:'七秒钟后',quote:'小鱼仍拥有回忆',date:'2026-11-16T20:00:00+08:00',src:'assets/album-qimiao.jpg'}];
+ const seedPhotos=[{id:'seed-qimiao',name:'七秒钟后.jpg',caption:'七秒钟后',quote:'小鱼仍拥有回忆',date:'2026-11-16T20:00:00+08:00',src:'assets/album-qimiao.jpg'},
+ {id:'seed-women',name:'我们.jpg',caption:'我们',quote:'都会幸福的',date:'2026-11-16T20:05:00+08:00',src:'assets/album-woomen.jpg'}];
  {const seedIds=new Set(photos.map(p=>p.id));for(const s of seedPhotos)if(!seedIds.has(s.id))photos.push(s);}
  const persist=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('本地空间不足，请先导出内容。');return false;}};
  const uid=()=>crypto.randomUUID();
