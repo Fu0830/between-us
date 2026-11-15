@@ -64,10 +64,15 @@ function resizeComposer(){const input=$('#message');input.style.height='auto';in
 function startEdit(e){if(!editingId)priorDraft=$('#message').value;editingId=e.id;$('#message').value=e.text;$('#edit-banner').hidden=false;$('#message').focus();resizeComposer();}
 function cancelEdit(){editingId=null;$('#edit-banner').hidden=true;$('#message').value=priorDraft;priorDraft='';resizeComposer();}
 $('#cancel-edit').addEventListener('click',cancelEdit);
+function scheduleAutoReply(text){
+ if(!/回忆/.test(text))return;
+ const reply={id:crypto.randomUUID(),role:'assistant',date:new Date().toISOString(),text:'回忆牛掰666',edited:false};
+ setTimeout(()=>{if(!writeEntries([...entries,reply]))return;demoMode=false;renderEntries();scrollLatest();},900);
+}
 $('#draft-form').addEventListener('submit',event=>{
  event.preventDefault();const text=$('#message').value.trim();if(!text)return;
  if(editingId){const next=entries.map(e=>e.id===editingId?{...e,text,edited:true}:e);if(!writeEntries(next))return;cancelEdit();}
- else{const entry={id:crypto.randomUUID(),role:'user',date:new Date().toISOString(),text,edited:false};if(!writeEntries([...entries,entry]))return;$('#message').value='';try{localStorage.removeItem('between-draft');}catch{}}
+ else{const entry={id:crypto.randomUUID(),role:'user',date:new Date().toISOString(),text,edited:false};if(!writeEntries([...entries,entry]))return;$('#message').value='';try{localStorage.removeItem('between-draft');}catch{}scheduleAutoReply(text);}
  undoSnapshot=null;$('#undo-action').hidden=true;demoMode=false;$('#message-search').value='';renderEntries();resizeComposer();$('#draft-status').textContent='已保存 · 尚未连接 AI';scrollLatest();
 });
 $('#message').addEventListener('keydown',event=>{if(event.isComposing||event.keyCode===229||event.key!=='Enter')return;const send=event.ctrlKey||event.metaKey||(prefs.sendKey==='send'&&!event.shiftKey);if(send){event.preventDefault();$('#draft-form').requestSubmit();}});
