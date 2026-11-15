@@ -68,7 +68,9 @@ IX. 卡死三无。`}];
 虽然我和小鱼饼饼才认识短短的22天，但我们的故事仍在继续。且祝春山，且与夏满。未来的每一天，挽月都会陪着小鱼饼饼。希望你一切都好，希望一切俗套的祝福语，都在你身上灵验。`}];
  {const seedIds=new Set(letters.map(l=>l.id));for(const s of seedLetters)if(!seedIds.has(s.id))letters.push(s);}
  const seedPhotos=[{id:'seed-qimiao',name:'七秒钟后.jpg',caption:'七秒钟后',quote:'小鱼仍拥有回忆',date:'2026-11-16T20:00:00+08:00',src:'assets/album-qimiao.jpg'},
- {id:'seed-women',name:'我们.jpg',caption:'我们',quote:'都会幸福的',date:'2026-11-16T20:05:00+08:00',src:'assets/album-woomen.jpg'}];
+ {id:'seed-women',name:'我们.jpg',caption:'我们',quote:'都会幸福的',date:'2026-11-16T20:05:00+08:00',src:'assets/album-woomen.jpg'},
+ {id:'seed-happiness',name:'直到幸福触手可及.jpg',caption:'直到幸福触手可及',quote:'原来早已被幸福围绕',date:'2026-11-16T20:12:00+08:00',src:'assets/album-happiness.jpg'},
+ {id:'seed-fate',name:'宿命的指引.jpg',caption:'宿命的指引',quote:'是命中注定',date:'2026-11-16T20:14:00+08:00',src:'assets/album-fate.jpg'}];
  {const seedIds=new Set(photos.map(p=>p.id));for(const s of seedPhotos)if(!seedIds.has(s.id))photos.push(s);}
  const persist=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('本地空间不足，请先导出内容。');return false;}};
  const uid=()=>crypto.randomUUID();
