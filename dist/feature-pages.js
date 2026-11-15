@@ -2,7 +2,7 @@
    No cloud endpoints or model credentials are involved. */
 (() => {
  const ids=['signal','touch','echo','within'];
- const room={signal:{en:'MUSIC —<br>BOX',cn:'音乐盒',label:'Music / 音乐盒',tag:'MUSIC BOX'},touch:{en:'MEMORY<br>VAULT —',cn:'记忆库',label:'Memory / 记忆库',tag:'MEMORY VAULT'},echo:{en:'PHOTO —<br>INDEX',cn:'相册',label:'Album / 相册',tag:'PHOTO ALBUM'},within:{en:'UNSENT<br>LETTERS —',cn:'未寄信',label:'Letters / 未寄信',tag:'UNSENT LETTERS'}};
+ const room={signal:{en:'MUSIC —<br>BOX',cn:'音乐盒',label:'Music / 音乐盒',tag:'MUSIC BOX'},touch:{en:'MEMORY<br>VAULT —',cn:'个人须知',label:'Memory / 个人须知',tag:'MEMORY VAULT'},echo:{en:'PHOTO —<br>INDEX',cn:'相册',label:'Album / 相册',tag:'PHOTO ALBUM'},within:{en:'UNSENT<br>LETTERS —',cn:'未寄信',label:'Letters / 未寄信',tag:'UNSENT LETTERS'}};
  ids.forEach(id=>{definitions[id].cn=room[id].cn;MODULES[id].title=room[id].label;const b=document.querySelector(`.specimen.${id} .module-enter`);if(b){const svg=b.querySelector('svg');b.replaceChildren(document.createTextNode(room[id].label+' '));if(svg)b.append(svg);b.setAttribute('aria-label','进入'+room[id].cn);}});
  const read=(key,fallback)=>{try{const v=JSON.parse(localStorage.getItem(key)||'null');return v??fallback;}catch{return fallback;}};
  let memories=read('between-memories',[]),letters=read('between-letters',[]),photos=read('between-photos',[]);
