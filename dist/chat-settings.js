@@ -1,5 +1,5 @@
 // Local conversation and settings. No model endpoint, network calls, or simulated AI delivery.
-const CHAT_DEFAULTS={fontSize:16,typeScale:1,density:'standard',lineHeight:1.7,showTime:true,sendKey:'newline',autoScroll:true,saveDraft:true,motion:true,guides:true,partnerName:'L.',selfName:'我'};
+const CHAT_DEFAULTS={fontSize:16,typeScale:1,density:'standard',lineHeight:1.7,showTime:true,sendKey:'newline',autoScroll:true,saveDraft:true,motion:true,guides:true,partnerName:'小鱼饼饼',selfName:'我'};
 function cleanPrefs(raw={}){
  const p={...CHAT_DEFAULTS};
  for(const key of ['motion','guides','showTime','autoScroll','saveDraft'])if(typeof raw[key]==='boolean')p[key]=raw[key];
@@ -8,7 +8,7 @@ function cleanPrefs(raw={}){
  if([1.5,1.7,1.8,2].includes(Number(raw.lineHeight)))p.lineHeight=Number(raw.lineHeight);
  if(['compact','standard','airy'].includes(raw.density))p.density=raw.density;
  if(['send','newline'].includes(raw.sendKey))p.sendKey=raw.sendKey;
- if(typeof raw.partnerName==='string'&&raw.partnerName.trim())p.partnerName=raw.partnerName.trim().slice(0,24);
+ if(typeof raw.partnerName==='string'&&raw.partnerName.trim()&&raw.partnerName.trim()!=='L.')p.partnerName=raw.partnerName.trim().slice(0,24);
  if(typeof raw.selfName==='string'&&raw.selfName.trim())p.selfName=raw.selfName.trim().slice(0,24);
  return p;
 }
