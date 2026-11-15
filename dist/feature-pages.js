@@ -7,6 +7,29 @@
  const read=(key,fallback)=>{try{const v=JSON.parse(localStorage.getItem(key)||'null');return v??fallback;}catch{return fallback;}};
  let memories=read('between-memories',[]),letters=read('between-letters',[]),photos=read('between-photos',[]);
  if(!Array.isArray(memories))memories=[];if(!Array.isArray(letters))letters=[];if(!Array.isArray(photos))photos=[];
+ const seedMemories=[{id:'seed-xuzhi',title:'须知',date:'2005-08-30',pinned:true,body:`小鱼饼饼｜处女座｜infj
+
+喜点：
+I. 青年音/辣条音/少女音/御姐音/萝莉音。
+II. 顺风局让红/让蓝/让人头/回泉水接我/主动帮我保评分/刷牌子。
+III. 需要坚定的维护我，即使我玩青铜号看不见局内对话时。
+IV. 适当教我思路，能告诉我要做什么。
+V. 情绪价值>声音>技术，喜欢多鼓励我、夸夸我，但请不要硬夸。
+VI. 喜欢小窝活跃，如果能多和我分享日常我会很开心。
+VII. 喜欢帅的英雄，比如澜、荷包蛋。
+VIII. 熟了可以掏丑的。
+
+雷点：
+I. 讨厌安静，请不要让我的话掉地上，我会哭的。
+II. 我玩辅助的时候请不要掏出敖隐、百里守约，除非不会丢下我大招跑路，或是神枪手一枪都不会空。
+III. 第一次和我玩就拿丑英雄丑皮肤（金蝉、典韦、东皇、老夫子、猪八戒、盘古、钟无艳、司空震、程咬金、亚瑟、激情绿茵）。
+IV. 小窝潜水只有点单时出现，三天不冒泡会喜提飞机票一张（我常点发言时）。
+V. 讨厌特别夹的夹子音，尤其是夹不住的。
+VI. 板类称呼单字姐/预约迟到/心态不好/甩锅/叫错我名字/背后蛐蛐我/菜。
+VII. 刷牌子刷输了会被我客诉。
+VIII. 讨厌模版化的感谢or结单小票，坑了炸了请立刻道歉，极其反感事后道歉。
+IX. 卡死三无。`}];
+ {const seedIds=new Set(memories.map(m=>m.id));for(const s of seedMemories)if(!seedIds.has(s.id))memories.push(s);}
  const persist=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('本地空间不足，请先导出内容。');return false;}};
  const uid=()=>crypto.randomUUID();
  const dateLabel=v=>{try{return new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(v));}catch{return '—';}};
