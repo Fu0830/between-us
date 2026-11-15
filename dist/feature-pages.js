@@ -30,6 +30,8 @@ VII. 刷牌子刷输了会被我客诉。
 VIII. 讨厌模版化的感谢or结单小票，坑了炸了请立刻道歉，极其反感事后道歉。
 IX. 卡死三无。`}];
  {const seedIds=new Set(memories.map(m=>m.id));for(const s of seedMemories)if(!seedIds.has(s.id))memories.push(s);}
+ const seedLetters=[{id:'seed-from-zaoan',title:'From早安',to:'小鱼饼饼',date:'2026-08-30',body:`一转眼很久了，时间过得好快。8.30正好是我们相遇的时间，也是你的生日。以前的我不相信缘分，也不相信运气。我觉得这个世界就是一个利益交换的构成体，直到你的出现我觉得并不完全是这样。原来无条件的偏爱是这样的。`}];
+ {const seedIds=new Set(letters.map(l=>l.id));for(const s of seedLetters)if(!seedIds.has(s.id))letters.push(s);}
  const persist=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('本地空间不足，请先导出内容。');return false;}};
  const uid=()=>crypto.randomUUID();
  const dateLabel=v=>{try{return new Intl.DateTimeFormat('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(v));}catch{return '—';}};
