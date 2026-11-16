@@ -151,7 +151,7 @@ IX. 卡死三无。`}];
  let audio=null,musicContext=null,musicGain=null,noteTimer=null,musicTick=null,playing=false,builtinIndex=0,noteIndex=0,startedAt=0,offset=0,musicVolume=.25,localMusic=null,renderMusic=()=>{};
  const tunes=[{title:'一小段夜曲',sub:'Night note / 原创音符片段',notes:[261.63,329.63,392,493.88,440,392,329.63,293.66,261.63,392,329.63,293.66]},{title:'靠近一点',sub:'A little closer / 原创音符片段',notes:[293.66,369.99,440,554.37,493.88,440,369.99,329.63,293.66,440,369.99,329.63]}];
  // BACKGROUND MUSIC: one looping track, paused while the music box plays.
- const bgm=(()=>{const el=new Audio('assets/bgm.m4a');el.loop=true;el.preload='auto';el.volume=.4;el.setAttribute('playsinline','');return el;})();
+ const bgm=(()=>{const el=new Audio('assets/bgm.m4a');el.loop=true;el.preload='metadata';el.volume=.4;el.setAttribute('playsinline','');return el;})();
  let bgmWanted=true;window.betweenBgm=bgm;
  function bgmTry(){if(!bgmWanted)return;const p=bgm.play();if(p&&p.catch)p.catch(()=>{});}
  function bgmPause(){bgmWanted=false;bgm.pause();}
