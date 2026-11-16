@@ -1,13 +1,13 @@
 /* Replace files or use Settings. Each illustration and guide remains a separate layer. */
 const ASSETS={
- skull:{file:'01-skull.png',size:[1347,1167],box:[242,121,881,925]},
- bird:{file:'01-bird.png',size:[1397,1126],box:[495,401,432,348]},
- upper:{file:'02-upper-hand.png',size:[1358,1159],box:[379,80,886,1012]},
- lower:{file:'02-lower-hand.png',size:[1328,1184],box:[173,158,974,983]},
- moon:{file:'moon-refined.png',size:[1254,1254],box:[86,93,1085,1085]},
- thorn:{file:'03-thorn.png',size:[1536,1024],box:[54,109,1429,838]},
- feather:{file:'04-feather.png',size:[1536,1024],box:[186,88,1195,865]},
- paper:{file:'04-paper.png',size:[1296,1213],box:[180,191,955,834]}
+ skull:{file:'01-skull.webp',size:[1347,1167],box:[242,121,881,925]},
+ bird:{file:'01-bird.webp',size:[1397,1126],box:[495,401,432,348]},
+ upper:{file:'02-upper-hand.webp',size:[1358,1159],box:[379,80,886,1012]},
+ lower:{file:'02-lower-hand.webp',size:[1328,1184],box:[173,158,974,983]},
+ moon:{file:'moon-refined.webp',size:[1254,1254],box:[86,93,1085,1085]},
+ thorn:{file:'03-thorn.webp',size:[1536,1024],box:[54,109,1429,838]},
+ feather:{file:'04-feather.webp',size:[1536,1024],box:[186,88,1195,865]},
+ paper:{file:'04-paper.webp',size:[1296,1213],box:[180,191,955,834]}
 };
 const MODULES={signal:{number:'01',title:'Signal / 在场',copy:'有些对话没有结束，只是换了一种形状。'},touch:{number:'02',title:'Touch / 触碰',copy:'在触碰之前，信号已经抵达。'},echo:{number:'03',title:'Bloom / 共生',copy:'留下声音，也留下生长的空间。'},within:{number:'04',title:'Within / 内里',copy:'那些尚未说出的话，也可以慢慢留下。'}};
 function raster(key,x,y,w,h,cls='neutral',rotation=0){const a=ASSETS[key];return `<div class="layer ${cls}" data-layer="${key}" style="left:${x}%;top:${y}%;width:${w}%;height:${h}%;transform:rotate(${rotation}deg)"><svg viewBox="${a.box.join(' ')}" aria-hidden="true"><image href="assets/${a.file}" width="${a.size[0]}" height="${a.size[1]}"/></svg></div>`;}

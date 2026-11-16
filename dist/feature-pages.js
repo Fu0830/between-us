@@ -67,18 +67,18 @@ IX. 卡死三无。`}];
 所以呀，这么好的小鱼饼饼值得世上一切。小鱼饼饼要好好照顾自己噢。无论如何我相信小鱼饼饼的未来只会越来越好。毕竟命运锻我以水火，该许我有天青色。小鱼饼饼是一个特别有能力的人，无论命运会否安排跌宕起伏的剧情，我们小鱼饼饼都有将之改写的能力。
 虽然我和小鱼饼饼才认识短短的22天，但我们的故事仍在继续。且祝春山，且与夏满。未来的每一天，挽月都会陪着小鱼饼饼。希望你一切都好，希望一切俗套的祝福语，都在你身上灵验。`}];
  {const seedIds=new Set(letters.map(l=>l.id));for(const s of seedLetters)if(!seedIds.has(s.id))letters.push(s);}
- const seedPhotos=[{id:'seed-qimiao',name:'七秒钟后.jpg',caption:'七秒钟后',quote:'小鱼仍拥有回忆',date:'2026-11-16T20:00:00+08:00',src:'assets/album-qimiao.jpg'},
- {id:'seed-women',name:'我们.jpg',caption:'我们',quote:'都会幸福的',date:'2026-11-16T20:05:00+08:00',src:'assets/album-woomen.jpg'},
- {id:'seed-happiness',name:'直到幸福触手可及.jpg',caption:'直到幸福触手可及',quote:'原来早已被幸福围绕',date:'2026-11-16T20:12:00+08:00',src:'assets/album-happiness.jpg'},
- {id:'seed-fate',name:'宿命的指引.jpg',caption:'宿命的指引',quote:'是命中注定',date:'2026-11-16T20:14:00+08:00',src:'assets/album-fate.jpg'},
- {id:'seed-heartbeat',name:'你说心脏每一秒骤停.jpg',caption:'你说心脏每一秒骤停',quote:'而我觉得每一秒都是与你共鸣',date:'2026-11-16T20:16:00+08:00',src:'assets/album-heartbeat.jpg'},
- {id:'seed-inverse',name:'我与你.jpg',caption:'我与你',quote:'是否是一道逆命题',date:'2026-11-16T20:18:00+08:00',src:'assets/album-inverse.jpg'},
- {id:'seed-themis',name:'忒弥斯手举的天平其上.jpg',caption:'忒弥斯手举的天平其上',quote:'象征你的砝码已超过我灵魂的重量',date:'2026-11-16T20:20:00+08:00',src:'assets/album-themis.jpg'},
- {id:'seed-butterfly',name:'闪动如蝴蝶在双颊.jpg',caption:'闪动如蝴蝶在双颊',quote:'那是眼泪吗',date:'2026-11-16T20:22:00+08:00',src:'assets/album-butterfly.jpg'},
- {id:'seed-ocean',name:'我开始相信命运.jpg',caption:'我开始相信命运',quote:'相信所有的雨季只是为了回到最初的洋流',date:'2026-11-16T20:24:00+08:00',src:'assets/album-ocean.jpg'},
- {id:'seed-florence',name:'窗外是佛罗伦萨.jpg',caption:'窗外是佛罗伦萨',quote:'桌上是死',date:'2026-11-16T20:26:00+08:00',src:'assets/album-florence.jpg'},
- {id:'seed-book',name:'命运之书里.jpg',caption:'命运之书里',quote:'我们不过一行字之间',date:'2026-11-16T20:28:00+08:00',src:'assets/album-book.jpg'},
- {id:'seed-hardship',name:'苦厄相随.jpg',caption:'苦厄相随',quote:'你说世间什么最难得',date:'2026-11-16T20:30:00+08:00',src:'assets/album-hardship.jpg'}];
+ const seedPhotos=[{id:'seed-qimiao',name:'七秒钟后.jpg',caption:'七秒钟后',quote:'小鱼仍拥有回忆',date:'2026-11-16T20:00:00+08:00',src:'assets/album-qimiao.webp'},
+ {id:'seed-women',name:'我们.jpg',caption:'我们',quote:'都会幸福的',date:'2026-11-16T20:05:00+08:00',src:'assets/album-woomen.webp'},
+ {id:'seed-happiness',name:'直到幸福触手可及.jpg',caption:'直到幸福触手可及',quote:'原来早已被幸福围绕',date:'2026-11-16T20:12:00+08:00',src:'assets/album-happiness.webp'},
+ {id:'seed-fate',name:'宿命的指引.jpg',caption:'宿命的指引',quote:'是命中注定',date:'2026-11-16T20:14:00+08:00',src:'assets/album-fate.webp'},
+ {id:'seed-heartbeat',name:'你说心脏每一秒骤停.jpg',caption:'你说心脏每一秒骤停',quote:'而我觉得每一秒都是与你共鸣',date:'2026-11-16T20:16:00+08:00',src:'assets/album-heartbeat.webp'},
+ {id:'seed-inverse',name:'我与你.jpg',caption:'我与你',quote:'是否是一道逆命题',date:'2026-11-16T20:18:00+08:00',src:'assets/album-inverse.webp'},
+ {id:'seed-themis',name:'忒弥斯手举的天平其上.jpg',caption:'忒弥斯手举的天平其上',quote:'象征你的砝码已超过我灵魂的重量',date:'2026-11-16T20:20:00+08:00',src:'assets/album-themis.webp'},
+ {id:'seed-butterfly',name:'闪动如蝴蝶在双颊.jpg',caption:'闪动如蝴蝶在双颊',quote:'那是眼泪吗',date:'2026-11-16T20:22:00+08:00',src:'assets/album-butterfly.webp'},
+ {id:'seed-ocean',name:'我开始相信命运.jpg',caption:'我开始相信命运',quote:'相信所有的雨季只是为了回到最初的洋流',date:'2026-11-16T20:24:00+08:00',src:'assets/album-ocean.webp'},
+ {id:'seed-florence',name:'窗外是佛罗伦萨.jpg',caption:'窗外是佛罗伦萨',quote:'桌上是死',date:'2026-11-16T20:26:00+08:00',src:'assets/album-florence.webp'},
+ {id:'seed-book',name:'命运之书里.jpg',caption:'命运之书里',quote:'我们不过一行字之间',date:'2026-11-16T20:28:00+08:00',src:'assets/album-book.webp'},
+ {id:'seed-hardship',name:'苦厄相随.jpg',caption:'苦厄相随',quote:'你说世间什么最难得',date:'2026-11-16T20:30:00+08:00',src:'assets/album-hardship.webp'}];
  {const seedIds=new Set(photos.map(p=>p.id));for(const s of seedPhotos)if(!seedIds.has(s.id))photos.push(s);}
  const persist=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{toast('本地空间不足，请先导出内容。');return false;}};
  const uid=()=>crypto.randomUUID();
@@ -178,7 +178,7 @@ IX. 卡死三无。`}];
   route.innerHTML='<div class="route-track"><svg viewBox="0 0 510 125" aria-hidden="true"><path d="M15 91H64L140 35H255L340 86H495"/><circle cx="64" cy="91" r="8"/><circle cx="255" cy="35" r="13"/><circle cx="450" cy="86" r="8"/></svg><button data-track="0"><small>[ 01* ] NIGHT NOTE</small><span>一小段夜曲</span></button><button data-track="1"><small>[ 02* ] CLOSER</small><span>靠近一点</span></button><button data-track="local" hidden><small>[ 03* ] YOUR RECORD</small><span>本地音乐</span></button></div>';
   root.prepend(route);
   const stage=root.querySelector('.music-disc-stage'),card=htmlNode('div','record-card');card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label','专辑卡片：轻点播放暂停，左右切歌，上下切换歌词');
-  stage.before(card);card.innerHTML='<div class="record-album"><span class="record-index">BETWEEN / US — 01</span><img src="assets/camellia-flower.png" alt="素白山茶专辑封面"><span class="record-cover-name">NIGHT<br>NOTES /</span><span class="record-side">A SOUND THAT STAYS.</span></div><div class="record-lyrics" hidden><small>LYRICS / 歌词</small><div class="lyric-lines"><p>这首是纯音乐</p><span>让旋律替我们说一会儿话。</span></div></div><span class="record-mode">01 / ALBUM ↕</span><span class="record-song"></span>';stage.remove();
+  stage.before(card);card.innerHTML='<div class="record-album"><span class="record-index">BETWEEN / US — 01</span><img src="assets/camellia-flower.webp" alt="素白山茶专辑封面"><span class="record-cover-name">NIGHT<br>NOTES /</span><span class="record-side">A SOUND THAT STAYS.</span></div><div class="record-lyrics" hidden><small>LYRICS / 歌词</small><div class="lyric-lines"><p>这首是纯音乐</p><span>让旋律替我们说一会儿话。</span></div></div><span class="record-mode">01 / ALBUM ↕</span><span class="record-song"></span>';stage.remove();
   const help=htmlNode('p','record-gesture-help','轻点播放 / 左右切歌 / 上下翻页');card.after(help);
   const lyricImport=htmlNode('label','lyric-import');lyricImport.textContent='放入歌词 .LRC ↗';const lyricFile=document.createElement('input');lyricFile.type='file';lyricFile.accept='.lrc,text/plain';lyricFile.className='file-input';lyricImport.append(lyricFile);root.querySelector('.music-import').after(lyricImport);
   let lyricMode=false,lyrics=[],pointer=null,routePointer=null;
@@ -232,6 +232,6 @@ IX. 卡死三无。`}];
  window.addEventListener('pagehide',()=>{bgm.pause();musicPause();cleanupTransition();photoUrls.forEach(URL.revokeObjectURL);if(localMusic)URL.revokeObjectURL(localMusic.url);});
  // Tint only the dark anatomical strokes revealed inside the opening, not the outer torso.
  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.classList.add('motion-svg-defs');svg.innerHTML='<defs><filter id="bone-blue-ink" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .094 0 0 0 0 .204 0 0 0 0 .831 -.2126 -.7152 -.0722 0 1"/><feComposite in2="SourceAlpha" operator="in"/></filter></defs>';document.body.prepend(svg);
- const back=$('[data-art="within"]');if(back){const tint=document.createElement('div');tint.className='within-pigment';tint.innerHTML='<svg viewBox="0 0 1254 1254" aria-hidden="true"><image href="assets/back-open.png" width="1254" height="1254" filter="url(#bone-blue-ink)"/></svg>';back.append(tint);}
+ const back=$('[data-art="within"]');if(back){const tint=document.createElement('div');tint.className='within-pigment';tint.innerHTML='<svg viewBox="0 0 1254 1254" aria-hidden="true"><image href="assets/back-open.webp" width="1254" height="1254" filter="url(#bone-blue-ink)"/></svg>';back.append(tint);}
  if(location.hash.startsWith('#piece-')&&room[location.hash.slice(7)])commitRoom(location.hash.slice(7));
 })();

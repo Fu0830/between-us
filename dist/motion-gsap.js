@@ -33,7 +33,7 @@
   const moon=$('.echo .moon');if(moon&&!$('.echo .moon-bloom')){const clone=moon.cloneNode(true);clone.classList.add('moon-bloom');clone.style.clipPath='url(#reveal-moon)';moon.after(clone);const pulse=document.createElement('i');pulse.className='moon-contact';moon.parentElement.append(pulse);}
   const back=$('[data-art="within"]');if(back&&!back.querySelector('.back-edge-layer')){const svg=element('svg',{class:'back-edge-layer',viewBox:'0 0 150 112'});svg.innerHTML='<path class="edge-left" d="M74 23C62 33 64 48 74 58"/><path class="edge-right" d="M76 23C90 32 88 48 76 58"/>';back.append(svg);}
   if(back&&!back.querySelector('.back-hand-tug')){
-   [['top','470 0 510 420'],['left','140 920 520 334'],['right','780 710 474 544']].forEach(([part,box])=>{const layer=document.createElement('div');layer.className='back-hand-tug back-hand-'+part;const svg=element('svg',{viewBox:box,'aria-hidden':'true'});svg.append(element('image',{href:'assets/back-open.png',width:1254,height:1254}));layer.append(svg);back.append(layer);});
+   [['top','470 0 510 420'],['left','140 920 520 334'],['right','780 710 474 544']].forEach(([part,box])=>{const layer=document.createElement('div');layer.className='back-hand-tug back-hand-'+part;const svg=element('svg',{viewBox:box,'aria-hidden':'true'});svg.append(element('image',{href:'assets/back-open.webp',width:1254,height:1254}));layer.append(svg);back.append(layer);});
   }
  }
  setupLayers();

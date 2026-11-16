@@ -111,7 +111,7 @@ $('#import-data').addEventListener('change',async event=>{
 });
 $('#clear-messages').addEventListener('click',async()=>{if(!entries.length){toast('暂无记录需要清空。');return;}if(!await confirmAction('清空本地对话？',`将移除 ${entries.length} 条记录。素材与设置保留，在下一次编辑或发送前可撤销。`,'清空记录'))return;const previous=entries.map(e=>({...e}));if(writeEntries([])){rememberUndo(previous);demoMode=false;if(editingId)cancelEdit();renderEntries();toast('已清空，可撤销。');}});
 $('#reset-reading').addEventListener('click',async()=>{if(!await confirmAction('恢复默认设置？','字号、间距、动效和输入习惯将恢复默认。对话与素材保持不变。','恢复'))return;prefs={...CHAT_DEFAULTS};savePrefs();toast('设置已恢复。');});
-const avatarUrls={partner:'assets/avatar-partner.png?v=1027n',self:'assets/avatar-self.png'};
+const avatarUrls={partner:'assets/avatar-partner.webp?v=1027q',self:'assets/avatar-self.webp'};
 let selectedMessage=null;
 function updateIdentity(){document.querySelectorAll('[data-partner-name]').forEach(el=>el.textContent=prefs.partnerName);document.querySelectorAll('[data-avatar]').forEach(el=>el.src=avatarUrls[el.dataset.avatar]);}
 function openMessageMenu(e){selectedMessage=e;$('#message-menu').showModal();}
@@ -133,7 +133,7 @@ $('#extra-demo').addEventListener('click',()=>{closeExtras();demoMode=!demoMode;
 $('#extra-clear').addEventListener('click',()=>{closeExtras();if(editingId)cancelEdit();else{$('#message').value='';$('#message').dispatchEvent(new Event('input'));}});
 for(const who of ['partner','self']){
  $('#upload-avatar-'+who).addEventListener('change',async event=>{const file=event.target.files[0];event.target.value='';if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>8*1024*1024){$('#profile-status').textContent='请选择小于 8MB 的 PNG、JPG 或 WebP。';return;}const url=URL.createObjectURL(file),img=new Image();img.src=url;try{await img.decode();await dbWrite('avatar-'+who,file);if(avatarUrls[who].startsWith('blob:'))URL.revokeObjectURL(avatarUrls[who]);avatarUrls[who]=url;updateIdentity();renderEntries();$('#profile-status').textContent='头像已保存在此浏览器。';}catch{URL.revokeObjectURL(url);$('#profile-status').textContent='头像保存失败，请检查浏览器存储权限。';}});
- document.querySelector('[data-reset-avatar="'+who+'"]').addEventListener('click',async()=>{try{await dbWrite('avatar-'+who,null);if(avatarUrls[who].startsWith('blob:'))URL.revokeObjectURL(avatarUrls[who]);avatarUrls[who]=who==='partner'?'assets/avatar-partner.png?v=1027n':'assets/avatar-self.png';updateIdentity();renderEntries();$('#profile-status').textContent='已恢复默认头像。';}catch{$('#profile-status').textContent='还原失败，请重试。';}});
+ document.querySelector('[data-reset-avatar="'+who+'"]').addEventListener('click',async()=>{try{await dbWrite('avatar-'+who,null);if(avatarUrls[who].startsWith('blob:'))URL.revokeObjectURL(avatarUrls[who]);avatarUrls[who]=who==='partner'?'assets/avatar-partner.webp?v=1027q':'assets/avatar-self.webp';updateIdentity();renderEntries();$('#profile-status').textContent='已恢复默认头像。';}catch{$('#profile-status').textContent='还原失败，请重试。';}});
 }
 async function loadAvatars(){try{const db=await dbReady;const tx=db.transaction('images','readonly');for(const who of ['partner','self']){const request=tx.objectStore('images').get('avatar-'+who);request.onsuccess=()=>{if(request.result){avatarUrls[who]=URL.createObjectURL(request.result);updateIdentity();renderEntries();}};}}catch{}}
 window.addEventListener('between:prefs',()=>{updateIdentity();renderEntries();});

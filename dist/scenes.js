@@ -9,8 +9,8 @@ function applyHomeStates(){
 }
 const tear=`<svg class="tear-layer" viewBox="0 0 130 172" aria-hidden="true"><path class="tear-stroke" d="M83 100C81 110 85 116 83 124L83 145"/><path class="tear-drop" d="M83 141C83 141 79.8 146 80.2 148C80.8 151 85.2 151 85.8 148C86.2 146 83 141 83 141Z"/></svg>`;
 original.signal+=tear;
-original.touch+='<img class="bone-overlay" src="assets/bone-hands.png" alt="">';
-original.within='<img class="within-art-state within-closed" src="assets/back-intact.png" alt=""><img class="within-art-state within-open" src="assets/back-open.png" alt="">';
+original.touch+='<img class="bone-overlay" src="assets/bone-hands.webp" alt="">';
+original.within='<img class="within-art-state within-closed" src="assets/back-intact.webp" alt=""><img class="within-art-state within-open" src="assets/back-open.webp" alt="">';
 Object.keys(MODULES).forEach(renderArt);applyHomeStates();
 const definitions={
  signal:{number:'01',en:'Every signal,<br>finds you.',cn:'在场',micro:'A presence, between signals.',note:'有些情绪，先于语言抵达。',placeholder:'这一刻，你想让对方知道什么？'},
@@ -29,7 +29,7 @@ function fillScene(id){
   stage.innerHTML='<div class="art">'+original.signal+'</div>';scene.classList.toggle('tear-on',artState.tear);
   const b=document.createElement('button');b.className='scene-action';b.textContent=artState.tear?'把蓝泪收起 —':'让情绪流动 ↗';b.addEventListener('click',()=>{setArtFlag('tear',!artState.tear);scene.classList.toggle('tear-on',artState.tear);b.textContent=artState.tear?'把蓝泪收起 —':'让情绪流动 ↗';});controls.append(b);
  }else if(id==='touch'){
-  stage.innerHTML='<div class="art">'+raster('upper',46,2,45,40)+raster('lower',0,60,57,37)+'</div><img class="bone-overlay" style="opacity:.55" src="assets/bone-hands.png" alt="">';
+  stage.innerHTML='<div class="art">'+raster('upper',46,2,45,40)+raster('lower',0,60,57,37)+'</div><img class="bone-overlay" style="opacity:.55" src="assets/bone-hands.webp" alt="">';
   const b=document.createElement('button');b.className='hold-touch';b.innerHTML='按住，靠近一点<em>hold to connect</em>';scene.querySelector('.scene-stage').append(b);
   const hold=()=>{b.classList.add('is-held');scene.classList.add('is-held');setArtFlag('bones',true);};const release=()=>{b.classList.remove('is-held');scene.classList.remove('is-held');};
   b.addEventListener('pointerdown',e=>{b.setPointerCapture(e.pointerId);hold();});['pointerup','pointercancel','lostpointercapture'].forEach(t=>b.addEventListener(t,release));b.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();hold();}});b.addEventListener('keyup',release);b.addEventListener('blur',release);
@@ -42,7 +42,7 @@ function fillScene(id){
   function applyMoon(){const disc=stage.querySelector('.lunar-disc');disc.classList.toggle('is-blue',artState.moon);disc.style.clipPath=({new:'inset(0 49% 0 49%)',first:'inset(0 0 0 50%)',full:'inset(0)',last:'inset(0 50% 0 0)'})[artState.phase];row.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.phase===artState.phase)));}
   stage.querySelector('.moon-control').addEventListener('click',()=>{setArtFlag('moon',!artState.moon);applyMoon();});applyMoon();
  }else{
-  stage.innerHTML='<img class="back-state back-state-closed" src="assets/back-intact.png" alt="完整的背部线稿"><img class="back-state back-state-open" src="assets/back-open.png" alt="显露脊柱的背部线稿">';
+  stage.innerHTML='<img class="back-state back-state-closed" src="assets/back-intact.webp" alt="完整的背部线稿"><img class="back-state back-state-open" src="assets/back-open.webp" alt="显露脊柱的背部线稿">';
   controls.innerHTML='<label class="sr-only" for="opening-slider">揭开程度</label><div class="slider-labels"><span>表面</span><span>内里</span></div><input class="opening-slider" id="opening-slider" type="range" min="0" max="100" value="'+artState.opening+'"><p class="scene-reveal-caption"></p>';
   const slider=controls.querySelector('input');const apply=()=>{const progress=Number(slider.value);stage.querySelector('.back-state-open').style.clipPath=`inset(0 ${50-progress/2}%)`;stage.querySelector('.back-state-closed').style.opacity=String(1-progress/100);controls.querySelector('.scene-reveal-caption').textContent=progress<20?'有些话，藏在表面之下。':progress<80?'慢慢来，看见不必着急。':'也把柔软的一面留给你。';artState.opening=progress;applyHomeStates();};slider.addEventListener('input',apply);slider.addEventListener('change',saveArtState);apply();
  }
