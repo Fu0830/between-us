@@ -2,7 +2,7 @@
 // 克莱因蓝小点 → 扩成不规则三角 → 画面切成碎块，一块块翻面，花原本跟底色同色藏着，翻到对的颜色才露出来（拼魔方的感觉）
 // → 丝线/子弹贯穿 → 溅蓝/黑的血 → 沿着拼缝裂开 → 碎块一块块掉下去，露出主页
 // ?v=b：三角外的花用黑线（默认 A 版：里外都是克莱因蓝线）
-// 花默认用 flowers.png（可画素材二次拼贴，见 README 授权说明）；?flowers=fake 换成 flowersSVG() 里临时画的那版
+// 花默认用 flowers.webp（可画素材二次拼贴，见 README 授权说明）；?flowers=fake 换成 flowersSVG() 里临时画的那版
 (async () => {
   const announce=type=>parent.postMessage({type},location.origin);
   // 制作者彩蛋：打开开发者工具的人会在控制台看到一只雪豹和一只鼠兔
@@ -12,7 +12,7 @@
   );
   // 先显示「等待中」，开屏素材和外层页面的图都下载完再开播，
   // 等待中盖住整屏（不然这层透明，下载时露出底下主页，看着像没开屏）
-  const own = ['flowers.png?v=1023','flowers_fill.png?v=1023','crack1.png','crack2.png'];
+  const own = ['flowers.webp?v=1023','flowers_fill.webp?v=1023','crack1.webp','crack2.webp'];
   let home = [];
   try { home = [...new Set([...parent.document.querySelectorAll('image')].map(i => i.getAttribute('href')).filter(Boolean))].map(h => new URL(h, parent.location.href).href); } catch {}
   const ldN = document.getElementById('ld-n'); let done = 0; const total = own.length + home.length;
@@ -25,7 +25,7 @@
   const grab = src => fetch(src).then(r => { if (!r.ok) throw new Error('Opening asset failed: ' + src); return r.blob(); }).then(b => { blob[src] = URL.createObjectURL(b); tick(); });
   await Promise.all([...own.map(grab), ...home.map(s => load(s, false))]);
   const U = src => blob[src] || src;
-  document.documentElement.style.setProperty('--fill-url', `url("${U('flowers_fill.png?v=1023')}")`);
+  document.documentElement.style.setProperty('--fill-url', `url("${U('flowers_fill.webp?v=1023')}")`);
   const ld = document.getElementById('loading');
   if (ld) { ld.style.transition = 'opacity .35s'; ld.style.opacity = '0'; setTimeout(() => ld.remove(), 400); }
   const KLEIN = "#002fa7", BLACK = "#0b0b0d", WHITE = "#f3f1ec";
@@ -111,9 +111,9 @@
     s += leaf(C[0] + u * .02, C[1] - u * .02, u * .2, 1.2) + leaf(A[0] + u * .05, A[1] + u * .05, u * .18, 3.6);
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><g fill="none" stroke="#000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">${s}</g></svg>`;
   }
-  // 花：线稿遮罩 flowers.png（画布 931×2016，与三角同一套比例）；?flowers=fake 用上面临时画的
+  // 花：线稿遮罩 flowers.webp（画布 931×2016，与三角同一套比例）；?flowers=fake 用上面临时画的
   document.documentElement.style.setProperty("--flowers", params.get("flowers") === "fake"
-    ? `url("data:image/svg+xml,${encodeURIComponent(flowersSVG())}")` : `url("${U('flowers.png?v=1023')}")`);
+    ? `url("data:image/svg+xml,${encodeURIComponent(flowersSVG())}")` : `url("${U('flowers.webp?v=1023')}")`);
 
   // ── 子弹的落点、溅血、裂纹（每一块里都放一份同样的，掉的时候跟着这块一起掉） ──
   const hits = [P(.5, .44), P(.57, .6), P(.38, .53)];
@@ -187,7 +187,7 @@
   const CRACK = params.get("mycrack") ? cracks() : "";
   // 两张裂纹图（透明底）：各对准一个落点，从落点一圈圈露出来；hub＝图里裂纹汇聚处的位置比例
   // 原图 1260 宽，只放到 1.1 倍屏宽，手机上接近一比一，避免放大发糊
-  const CRACKS = [{ src: U("crack1.png"), hit: 0, hub: [.52, .5], w: 1.1, ar: 1684 / 1260 }, { src: U("crack2.png"), hit: 1, hub: [.62, .42], w: 1.1, ar: 1712 / 1260 }];
+  const CRACKS = [{ src: U("crack1.webp"), hit: 0, hub: [.52, .5], w: 1.1, ar: 1684 / 1260 }, { src: U("crack2.webp"), hit: 1, hub: [.62, .42], w: 1.1, ar: 1712 / 1260 }];
   const CRACK_IMGS = CRACKS.map((c, k) => {
     const [hx, hy] = hits[c.hit], w = W * c.w, h = w * c.ar;
     return `<div class="crk" style="--cx:${hx}px;--cy:${hy}px;--r:var(--r${k})"><img src="${c.src}" style="left:${hx - c.hub[0] * w}px;top:${hy - c.hub[1] * h}px;width:${w}px"></div>`;
@@ -259,8 +259,8 @@
   gsap.set(ghosts, { opacity: 0 });
   // 花露出来以后，线在花的剪影里挖掉，看着像压在花下面
   const underFlowers = el => Object.assign(el.style, {
-    webkitMask: `linear-gradient(#000,#000), url("${U('flowers_fill.png?v=1023')}") 0 0 / 100% 100% no-repeat`, webkitMaskComposite: "xor",
-    mask: `linear-gradient(#000,#000), url("${U('flowers_fill.png?v=1023')}") 0 0 / 100% 100% no-repeat`, maskComposite: "exclude" });
+    webkitMask: `linear-gradient(#000,#000), url("${U('flowers_fill.webp?v=1023')}") 0 0 / 100% 100% no-repeat`, webkitMaskComposite: "xor",
+    mask: `linear-gradient(#000,#000), url("${U('flowers_fill.webp?v=1023')}") 0 0 / 100% 100% no-repeat`, maskComposite: "exclude" });
   frPaths.forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
 
   // 描边线和裂纹先藏好：用 dash 一点点画出来
